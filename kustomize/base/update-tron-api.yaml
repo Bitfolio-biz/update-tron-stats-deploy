@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: update-tron-srv
+spec:
+  ports:
+    - port: 8080
+      targetPort: tron-api
+  selector:
+    app: update-tron-api
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: update-tron-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: update-tron-api
+  template:
+    metadata:
+      labels:
+        app: update-tron-api
+    spec:
+      containers:
+        - name: tron-api
+          image: update-tron-stats
+          ports:
+            - containerPort: 8080
+              name: tron-api
+              
