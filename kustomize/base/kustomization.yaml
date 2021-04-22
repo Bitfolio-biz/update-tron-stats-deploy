@@ -8,4 +8,4 @@ images:
   newTag: v0.0.1
 - name: update-tron-stats
   newName: bitfolio/update-tron-stats
-  newTag: v0.3
+  newTag: v0.4
